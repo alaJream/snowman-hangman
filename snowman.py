@@ -43,7 +43,19 @@ def get_guessed_word(secret_word, letters_guessed):
     '''
 
     #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
-    
+    # example: glasses, u a j, __a____
+    # with the letters guessed, loop through secret_word, if letter shows correct then show letter 
+    # otherwise show the rest of secret_word as "_"
+    word = [ ]
+    for letter in secret_word:
+        correct_letter = False
+        for guessed_letter in letters_guessed:
+            if letter == guessed_letter:
+                word.append(letter)
+                correct_letter = True
+        if correct_letter == False:
+            word.append("_")
+    return "|".join(word)
 
 
 
