@@ -94,14 +94,15 @@ def spaceman(secret_word):
       secret_word (string): the secret word to guess.
 
     '''
-   
+    print("welcome to the Spaceman Game! \nYou have 7 tries to guess the word I have chosen!")
 
     letters_guessed = []
+    guesses_left = 7
    
 
     #TODO: show the player information about the game according to the project spec
     # explain game to user
-    print("welcome to the Spaceman Game! \nYou have 7 tries to guess the word I have chosen!")
+    
 
     # ---------------------------------
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
@@ -117,6 +118,12 @@ def spaceman(secret_word):
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
     # check if letter is in secret_word, print if it is or not
     is_guess_in_word(user_guess, secret_word)
+    is_guess_in_word(user_guess, secret_word)
+    guessed_right = is_guess_in_word(user_guess, secret_word)
+    if guessed_right == False:
+        guesses_left -= 1
+    letters_guessed.append(user_guess)
+    print(f"You have {guesses_left} guesses left.")
 
     # ---------------------------------
     #TODO: show the guessed word so far
